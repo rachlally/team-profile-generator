@@ -40,6 +40,7 @@ function addManager(){
         const {name, id, email, officeNumber} = response;
         const manager = new Manager (name, id, email, officeNumber);
         employees.push(manager);
+        console.log(manager);
         addEmployee();
     })
 };
@@ -60,7 +61,11 @@ function addEmployee (){
             case "Add Intern":
                 addIntern();
                 break;
+            case "Finished":
+                writeFile();
+                break;
             default:
+                console.log(employees)
                 break;
 
         }
@@ -93,6 +98,7 @@ function addEngineer() {
         const {name, id, email, username} = response;
         const engineer = new Engineer (name, id, email, username);
         employees.push(engineer);
+        console.log(engineer);
         addEmployee();
     })
 };
@@ -123,9 +129,20 @@ function addIntern() {
         const {name, id, email, school} = response;
         const intern = new Intern (name, id, email, school);
         employees.push(intern);
+        console.log(intern);
         addEmployee();
     })
 };
 
+function writeFile() {
+    fs.writeFile("index.html", generateHtml(employees), (err) =>
+        err ? console.log(err) : console.log("Generating Team Profile"))
+}
+
 //intitalize app
+// function init(){
+//     addManager();
+    
+//     }
+// init();
 addManager();
