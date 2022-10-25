@@ -14,12 +14,6 @@ const generateHtml = require("./util/generateHtml");
 //Added employee array
 const employees = [];
 
-function init(){
-    addManager();
-    addEmployee();
-}
-init();
-
 function addManager(){
     inquirer.prompt([
         {
@@ -46,9 +40,9 @@ function addManager(){
         const {name, id, email, officeNumber} = response;
         const manager = new Manager (name, id, email, officeNumber);
         employees.push(manager);
+        addEmployee();
     })
 };
-
 
 function addEmployee (){
     inquirer.prompt([
@@ -57,24 +51,21 @@ function addEmployee (){
             name: "choice",
             message: "What would you like to do next?",
             choices: ["Add Engineer", "Add Intern", "Finished"]
-        }
+        },
     ]).then((response)=> {
         switch (response.choice){
             case "Add Engineer":
-                console.log("Add Engineer")
                 addEngineer();
                 break;
             case "Add Intern":
-                console.log("Add Intern")
                 addIntern();
                 break;
-            case "Finished":
-                console.log("Finished")
+            default:
+                break;
 
         }
     })
 };
-
     
 function addEngineer() {
     inquirer.prompt([
@@ -102,6 +93,7 @@ function addEngineer() {
         const {name, id, email, username} = response;
         const engineer = new Engineer (name, id, email, username);
         employees.push(engineer);
+        addEmployee();
     })
 };
 
@@ -131,5 +123,9 @@ function addIntern() {
         const {name, id, email, school} = response;
         const intern = new Intern (name, id, email, school);
         employees.push(intern);
+        addEmployee();
     })
 };
+
+//intitalize app
+addManager();
