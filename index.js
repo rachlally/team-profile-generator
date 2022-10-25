@@ -14,6 +14,7 @@ const generateHtml = require("./util/generateHtml");
 //Added employee array
 const employees = [];
 
+//Begin app with Manager prompts
 function addManager(){
     inquirer.prompt([
         {
@@ -45,6 +46,7 @@ function addManager(){
     })
 };
 
+//Prompt user to choose what to do next, add, or finish application
 function addEmployee (){
     inquirer.prompt([
         {
@@ -65,13 +67,13 @@ function addEmployee (){
                 writeFile();
                 break;
             default:
-                console.log(employees)
                 break;
 
         }
     })
 };
-    
+
+//Engineer prompt
 function addEngineer() {
     inquirer.prompt([
         {
@@ -103,6 +105,7 @@ function addEngineer() {
     })
 };
 
+//Intern prompt
 function addIntern() {
     inquirer.prompt([
         {
@@ -134,15 +137,11 @@ function addIntern() {
     })
 };
 
+//Write responses to generatedhtml
 function writeFile() {
     fs.writeFile("index.html", generateHtml(employees), (err) =>
         err ? console.log(err) : console.log("Generating Team Profile"))
 }
 
-//intitalize app
-// function init(){
-//     addManager();
-    
-//     }
-// init();
+//Call first prompt, Intializes program
 addManager();
