@@ -63,12 +63,10 @@ function addEmployee (){
             case "Add Intern":
                 addIntern();
                 break;
-            case "Finished":
+            default :
                 writeFile();
                 break;
-            default:
-                break;
-
+            
         }
     })
 };
