@@ -5,7 +5,7 @@ Helping software engineering teams create team profiles
 
 The purpose of this Team Profile Generator is to provide software engineering teams a tool they can use to easily organize and view their entire team in one spot.  With teams growing and changing frequently, this is a useful application that takes minimal effort to fill out but is a huge time saver when needing to find a team member's information. 
 
-I learned how to create constructor classes and extend certain characteristics to subclasses.  I learned how valuable running tests is.  I utilize a Switch Case for the first time which helped create an easy to read function that may have been complicated and nested otherwise.
+I learned how to create constructor classes and extend certain characteristics to subclasses.  I learned how valuable running tests is.  I utilized a Switch Case for the first time which helped create an easy to read function that may have been complicated and nested otherwise.
 
 ## Installation
 
